@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Vigneshwar Reddy Lenkala — Sr. Software Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --navy: #1F4E8C;
+    --navy-dark: #0f2d57;
+    --navy-light: #D6E4F7;
+    --accent: #0A9FD8;
+    --accent2: #F5A623;
+    --text: #1a1a2e;
+    --muted: #5a6a7a;
+    --bg: #f0f4f9;
+    --white: #ffffff;
+    --card: #ffffff;
+    --border: #d0dcea;
+    --tag-bg: #e8f0fc;
+    --tag-color: #1F4E8C;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* BANNER */
+  .banner {
+    height: 220px;
+    background: linear-gradient(135deg, #0f2d57 0%, #1F4E8C 40%, #0A9FD8 80%, #1aa3d4 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .banner::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255,255,255,0.03) 20px, rgba(255,255,255,0.03) 40px);
+  }
+  .banner-dots {
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  .banner-text {
+    position: absolute;
+    bottom: 28px; left: 50%;
+    transform: translateX(-50%);
+    font-family: 'IBM Plex Mono', monospace;
+    color: rgba(255,255,255,0.18);
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  /* PROFILE WRAPPER */
+  .profile-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* AVATAR AREA */
+  .avatar-area {
+    display: flex;
+    align-items: flex-end;
+    gap: 24px;
+    margin-top: -70px;
+    padding-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  .avatar {
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    border: 5px solid var(--white);
+    background: linear-gradient(135deg, var(--navy-dark) 0%, var(--accent) 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 48px; font-weight: 700; color: white;
+    flex-shrink: 0;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: -2px;
+  }
+  .avatar-info { padding-bottom: 8px; flex: 1; min-width: 200px; }
+  .avatar-info h1 {
+    font-size: 26px; font-weight: 700; color: var(--text);
+    letter-spacing: -0.5px; margin-bottom: 5px;
+  }
+  .avatar-info .headline {
+    font-size: 14.5px; color: var(--muted); font-weight: 400; margin-bottom: 6px;
+  }
+  .avatar-info .meta {
+    display: flex; flex-wrap: wrap; gap: 14px; align-items: center;
+  }
+  .avatar-info .meta a, .avatar-info .meta span {
+    font-size: 13px; color: var(--accent); font-weight: 500;
+    text-decoration: none; display: flex; align-items: center; gap: 4px;
+  }
+  .avatar-info .meta a:hover { text-decoration: underline; }
+  .avatar-btns { display: flex; gap: 10px; padding-bottom: 8px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--navy);
+    color: white; padding: 10px 28px;
+    border-radius: 24px; font-size: 14px; font-weight: 600;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: var(--navy-dark); }
+  .btn-outline {
+    background: transparent;
+    color: var(--navy); padding: 9px 24px;
+    border-radius: 24px; font-size: 14px; font-weight: 600;
+    text-decoration: none; border: 2px solid var(--navy); cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-outline:hover { background: var(--navy); color: white; }
+
+  /* STATS */
+  .stats-row {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+    margin-bottom: 16px;
+  }
+  .stat-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 12px; text-align: center;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+  .stat-num { font-size: 26px; font-weight: 700; color: var(--navy); }
+  .stat-label { font-size: 11.5px; color: var(--muted); margin-top: 2px; }
+
+  /* CARDS */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px 32px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+  }
+  .card h2 {
+    font-size: 17px; font-weight: 700; color: var(--navy);
+    margin-bottom: 18px; padding-bottom: 10px;
+    border-bottom: 2px solid var(--navy-light);
+    display: flex; align-items: center; gap: 8px;
+  }
+
+  /* ABOUT */
+  .about-text { font-size: 14.5px; color: var(--muted); line-height: 1.85; }
+  .about-text strong { color: var(--text); font-weight: 600; }
+  .about-highlights {
+    margin-top: 16px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+  }
+  .highlight-item {
+    background: var(--tag-bg);
+    border: 1px solid #c8dbf5;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 13px; color: var(--navy); font-weight: 500;
+    display: flex; align-items: flex-start; gap: 8px;
+  }
+  .highlight-item .hi-icon { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+
+  /* EXPERIENCE */
+  .exp-item { display: flex; gap: 16px; margin-bottom: 24px; }
+  .exp-item:last-child { margin-bottom: 0; }
+  .exp-icon {
+    width: 50px; height: 50px;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--accent) 100%);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; font-weight: 800; color: white;
+    flex-shrink: 0; font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: -1px;
+  }
+  .exp-body { flex: 1; }
+  .exp-body h3 { font-size: 15.5px; font-weight: 700; color: var(--text); }
+  .exp-body .company { font-size: 13.5px; color: var(--navy); font-weight: 600; margin: 3px 0 2px; }
+  .exp-body .period { font-size: 12px; color: var(--muted); margin-bottom: 12px; }
+  .exp-body ul { padding-left: 0; list-style: none; }
+  .exp-body li {
+    font-size: 13.5px; color: var(--muted); margin-bottom: 7px;
+    line-height: 1.65; padding-left: 16px; position: relative;
+  }
+  .exp-body li::before {
+    content: '–';
+    position: absolute; left: 0; color: var(--accent); font-weight: 700;
+  }
+  .exp-body li strong { color: var(--text); font-weight: 600; }
+
+  /* PROJECT BOX */
+  .project-box {
+    background: linear-gradient(120deg, #e8f2ff 0%, #f3f8ff 100%);
+    border: 1px solid #c0d8f5;
+    border-left: 4px solid var(--navy);
+    border-radius: 10px;
+    padding: 14px 18px; margin-top: 14px;
+  }
+  .project-box h4 {
+    font-size: 12.5px; font-weight: 700; color: var(--navy);
+    text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;
+  }
+  .project-box p { font-size: 13px; color: var(--muted); line-height: 1.7; }
+
+  /* SKILLS */
+  .skills-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+  .skill-tag {
+    background: var(--tag-bg); color: var(--tag-color);
+    border: 1px solid #c0d4f5; border-radius: 20px;
+    padding: 5px 15px; font-size: 12.5px; font-weight: 500;
+    transition: all 0.2s; cursor: default;
+  }
+  .skill-tag:hover {
+    background: var(--navy); color: white;
+    border-color: var(--navy); transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(31,78,140,0.2);
+  }
+  .skill-group { margin-bottom: 18px; }
+  .skill-group:last-child { margin-bottom: 0; }
+  .skill-group-label {
+    font-size: 11px; font-weight: 600; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px;
+  }
+
+  /* EDUCATION */
+  .edu-item { display: flex; gap: 16px; margin-bottom: 20px; }
+  .edu-item:last-child { margin-bottom: 0; }
+  .edu-icon {
+    width: 46px; height: 46px;
+    background: var(--navy-light);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; flex-shrink: 0;
+  }
+  .edu-body h3 { font-size: 14.5px; font-weight: 700; color: var(--text); }
+  .edu-body .school { font-size: 13px; color: var(--navy); font-weight: 500; margin: 2px 0; }
+  .edu-body .year { font-size: 12px; color: var(--muted); }
+
+  /* CONTACT CARD */
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  }
+  .contact-item {
+    display: flex; align-items: center; gap: 12px;
+    background: var(--tag-bg); border: 1px solid #c8dbf5;
+    border-radius: 10px; padding: 12px 16px;
+    text-decoration: none; transition: all 0.2s;
+  }
+  .contact-item:hover {
+    background: var(--navy); border-color: var(--navy);
+    transform: translateY(-1px);
+  }
+  .contact-item:hover .ci-label, .contact-item:hover .ci-value { color: white; }
+  .ci-icon { font-size: 20px; flex-shrink: 0; }
+  .ci-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+  .ci-value { font-size: 13.5px; color: var(--navy); font-weight: 600; }
+
+  /* FOOTER */
+  .footer {
+    text-align: center; color: var(--muted);
+    font-size: 12px; padding: 24px 0 40px;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  @media (max-width: 640px) {
+    .stats-row { grid-template-columns: 1fr 1fr; }
+    .about-highlights { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .avatar { width: 110px; height: 110px; font-size: 36px; }
+    .card { padding: 20px 18px; }
+    .avatar-info h1 { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="banner">
+  <div class="banner-dots"></div>
+  <div class="banner-text">Full-Stack Engineer · Java · Python · Angular · AWS · Cloud-Native</div>
+</div>
+
+<div class="profile-wrapper">
+
+  <!-- AVATAR + NAME -->
+  <div class="avatar-area">
+    <div class="avatar">VRL</div>
+    <div class="avatar-info">
+      <h1>Vigneshwar Reddy Lenkala</h1>
+      <div class="headline">Sr. Associate Engineer at Fannie Mae &nbsp;|&nbsp; Building Cloud-Native Platforms on AWS &nbsp;|&nbsp; Python · Java · Angular · DevOps · Microservices &nbsp;|&nbsp; Open to New Opportunities</div>
+      <div class="meta">
+        <span>📍 United States</span>
+        <a href="mailto:vigneshl1210@gmail.com">✉️ vigneshl1210@gmail.com</a>
+        <a href="tel:4798000119">📞 (479) 800-0119</a>
+        <a href="https://www.linkedin.com/in/vignesh-l-9684a2205/" target="_blank">🔗 LinkedIn</a>
+      </div>
+    </div>
+    <div class="avatar-btns">
+      <a href="mailto:vigneshl1210@gmail.com" class="btn-primary">Get in Touch</a>
+      <a href="https://www.linkedin.com/in/vignesh-l-9684a2205/" target="_blank" class="btn-outline">LinkedIn</a>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-row">
+    <div class="stat-card"><div class="stat-num">5</div><div class="stat-label">Years Experience</div></div>
+    <div class="stat-card"><div class="stat-num">15+</div><div class="stat-label">AWS Services</div></div>
+    <div class="stat-card"><div class="stat-num">3</div><div class="stat-label">Environments Managed</div></div>
+    <div class="stat-card"><div class="stat-num">Full</div><div class="stat-label">Stack Coverage</div></div>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="card">
+    <h2>🧑‍💻 About</h2>
+    <div class="about-text">
+      Full-Stack Software Engineer with <strong>4+ years of experience</strong> building scalable enterprise applications and cloud-native platforms. Currently at <strong>Fannie Mae</strong>, contributing to an <strong>AWS Secrets Manager platform</strong> that enables internal teams to manage, rotate, verify, and perform bulk operations on secrets at scale.
+      <br/><br/>
+      My stack spans <strong>Java/Spring Boot</strong> for REST API layers, <strong>Python (Boto3 + Lambda)</strong> for cloud automation, <strong>Angular</strong> for modern frontends, and <strong>AWS</strong> for infrastructure — EC2, ECS, Lambda, S3, CloudWatch, IAM, VPC, and more. I contribute across the full SDLC and thrive in Agile environments.
+      <div class="about-highlights">
+        <div class="highlight-item"><span class="hi-icon">🏗️</span>MVC platform: Angular → Spring Boot (ECS) → Python Lambda → CloudWatch</div>
+        <div class="highlight-item"><span class="hi-icon">⚡</span>Frontend migration: Legacy HTML/JS → Angular (15+ reusable components)</div>
+        <div class="highlight-item"><span class="hi-icon">🔄</span>CI/CD modernization: Jenkins + UCD → GitLab CI/CD + Terraform + Docker</div>
+        <div class="highlight-item"><span class="hi-icon">🔐</span>AWS security: IAM roles, S3 policies, env segregation (dev/test/prod)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div class="card">
+    <h2>💼 Experience</h2>
+    <div class="exp-item">
+      <div class="exp-icon">TX</div>
+      <div class="exp-body">
+        <h3>Sr. Associate Engineer</h3>
+        <div class="company">Fannie Mae</div>
+        <div class="period">April 2021 – Present &nbsp;·&nbsp; Contract &nbsp;·&nbsp; 5 years</div>
+        <ul>
+          <li>Developed and maintained an enterprise-grade internal web application for <strong>AWS Secrets Manager</strong>, enabling 100+ internal users to rotate, verify, enable/disable, update values, tags, and KMS keys, and execute bulk operations across 1,000+ secrets.</li>
+          <li>Implemented a scalable <strong>MVC architecture</strong> — <strong>Angular</strong> frontend → <strong>Java Spring Boot</strong> REST API on <strong>Amazon ECS</strong> → <strong>Python Lambda</strong> functions per backend operation — with centralized observability via <strong>CloudWatch Logs</strong>.</li>
+          <li>Modernized the frontend by rebuilding it from scratch in <strong>Angular</strong>, migrating from legacy <strong>HTML/JavaScript</strong>, and delivering 15+ reusable components that improved UI consistency and reduced feature development time.</li>
+          <li>Developed and maintained 10+ <strong>Python AWS Lambda</strong> functions (rotation, verification, deletion, tag updates, KMS key management) using <strong>Boto3</strong> and <strong>AWS CLI</strong>, automating infrastructure interactions across dev, test, and production environments.</li>
+          <li>Provisioned and managed AWS infrastructure — <strong>EC2, ECS, Lambda, S3, EBS, ELB, VPC, IAM</strong>, and <strong>CloudWatch</strong> — across 3 environments, enforcing secure deployments via <strong>IAM roles</strong> and <strong>S3 bucket policies</strong>.</li>
+          <li>Contributed to a CI/CD pipeline modernization from <strong>Jenkins + UCD</strong> to <strong>GitLab CI/CD</strong>, <strong>Terraform</strong>, and <strong>Docker</strong>; managed day-to-day deployments across <strong>Bitbucket</strong>, <strong>GitLab</strong>, and <strong>AWS CodeCommit</strong> using <strong>GitLab CI/CD</strong> and <strong>AWS CodePipeline</strong>.</li>
+          <li>Diagnosed and resolved 20+ production incidents by debugging across the <strong>Angular</strong> UI, <strong>Spring Boot</strong> API, <strong>Lambda</strong> functions, and <strong>CloudWatch</strong> logs, maintaining high system availability for internal users.</li>
+          <li>Participated in Agile ceremonies across 10+ sprints — daily standups, sprint planning, retrospectives — using <strong>JIRA</strong> and <strong>Confluence</strong> for task tracking and documentation.</li>
+        </ul>
+        <div class="project-box">
+          <h4>🔑 Featured Project — AWS Secrets Manager Platform</h4>
+          <p>Enterprise internal tool for managing AWS Secrets Manager at scale. Supports rotation, verification, bulk operations, KMS key management, and tag updates across 1,000+ secrets. Stack: <strong>Angular + Java Spring Boot (ECS) + Python Lambda + CloudWatch Logs</strong>. Deployed across dev, test, and production on AWS.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="card">
+    <h2>🛠 Skills</h2>
+
+    <div class="skill-group">
+      <div class="skill-group-label">Languages</div>
+      <div class="skills-grid">
+        <span class="skill-tag">Java</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">TypeScript</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">SQL</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-label">Backend & APIs</div>
+      <div class="skills-grid">
+        <span class="skill-tag">Spring Boot</span>
+        <span class="skill-tag">Spring MVC</span>
+        <span class="skill-tag">Spring Security</span>
+        <span class="skill-tag">Microservices</span>
+        <span class="skill-tag">REST APIs</span>
+        <span class="skill-tag">SOAP</span>
+        <span class="skill-tag">JPA / Hibernate</span>
+        <span class="skill-tag">Spring Batch</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-label">Frontend</div>
+      <div class="skills-grid">
+        <span class="skill-tag">Angular</span>
+        <span class="skill-tag">ReactJS</span>
+        <span class="skill-tag">HTML5 / CSS3</span>
+        <span class="skill-tag">Bootstrap</span>
+        <span class="skill-tag">jQuery</span>
+        <span class="skill-tag">NodeJS</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-label">AWS Cloud</div>
+      <div class="skills-grid">
+        <span class="skill-tag">AWS Lambda</span>
+        <span class="skill-tag">Amazon ECS</span>
+        <span class="skill-tag">EC2</span>
+        <span class="skill-tag">S3</span>
+        <span class="skill-tag">Secrets Manager</span>
+        <span class="skill-tag">CloudWatch</span>
+        <span class="skill-tag">API Gateway</span>
+        <span class="skill-tag">IAM</span>
+        <span class="skill-tag">VPC</span>
+        <span class="skill-tag">RDS</span>
+        <span class="skill-tag">SNS</span>
+        <span class="skill-tag">EBS / ELB</span>
+        <span class="skill-tag">Boto3</span>
+        <span class="skill-tag">AWS CLI</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-label">DevOps & CI/CD</div>
+      <div class="skills-grid">
+        <span class="skill-tag">GitLab CI/CD</span>
+        <span class="skill-tag">Terraform</span>
+        <span class="skill-tag">Docker</span>
+        <span class="skill-tag">Jenkins</span>
+        <span class="skill-tag">AWS CodePipeline</span>
+        <span class="skill-tag">UCD (UrbanCode)</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-label">Version Control & Tools</div>
+      <div class="skills-grid">
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">GitLab</span>
+        <span class="skill-tag">Bitbucket</span>
+        <span class="skill-tag">AWS CodeCommit</span>
+        <span class="skill-tag">JIRA</span>
+        <span class="skill-tag">Confluence</span>
+        <span class="skill-tag">Postman</span>
+        <span class="skill-tag">IntelliJ IDEA</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-label">Databases</div>
+      <div class="skills-grid">
+        <span class="skill-tag">PostgreSQL</span>
+        <span class="skill-tag">MySQL</span>
+        <span class="skill-tag">Oracle</span>
+        <span class="skill-tag">MongoDB</span>
+        <span class="skill-tag">MS SQL Server</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="card">
+    <h2>🎓 Education</h2>
+    <div class="edu-item">
+      <div class="edu-icon">🎓</div>
+      <div class="edu-body">
+        <h3>Master of Science — Applied Computer Science</h3>
+        <div class="school">Northwest Missouri State University</div>
+        <div class="year">Jan 2020 – May 2021 &nbsp;·&nbsp; Maryville, MO</div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-icon">🏛️</div>
+      <div class="edu-body">
+        <h3>Bachelor of Technology — Electronics & Communication Engineering</h3>
+        <div class="school">Vignana Bharathi Institute of Technology (Affiliated to JNTUH)</div>
+        <div class="year">Aug 2015 – May 2019 &nbsp;·&nbsp; India</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="card">
+    <h2>📬 Contact</h2>
+    <div class="contact-grid">
+      <a href="mailto:vigneshl1210@gmail.com" class="contact-item"><span class="ci-icon">✉️</span><div><div class="ci-label">Email</div><div class="ci-value">vigneshl1210@gmail.com</div></div></a>
+      <a href="tel:4798000119" class="contact-item">
+        <span class="ci-icon">📞</span>
+        <div><div class="ci-label">Phone</div><div class="ci-value">(479) 800-0119</div></div>
+      </a>
+      <a href="https://www.linkedin.com/in/vignesh-l-9684a2205/" target="_blank" class="contact-item">
+        <span class="ci-icon">🔗</span>
+        <div><div class="ci-label">LinkedIn</div><div class="ci-value">vignesh-l-9684a2205</div></div>
+      </a>
+      <a href="#" class="contact-item">
+        <span class="ci-icon">📍</span>
+        <div><div class="ci-label">Location</div><div class="ci-value">United States</div></div>
+      </a>
+    </div>
+  </div>
+
+  <div class="footer
